@@ -1,23 +1,8 @@
 import React, { Component } from 'react'
 import ReactTable from 'react-table'
 import api from '../api'
-
-import styled from 'styled-components'
-
 import 'react-table/react-table.css'
 
-const Wrapper = styled.div`
-    padding: 0 40px 40px 40px;
-`
-const Update = styled.div`
-    color: #ef9b0f;
-    cursor: pointer;
-`
-
-const Delete = styled.div`
-    color: #ff0000;
-    cursor: pointer;
-`
 class UpdateGuest extends Component {
     updateUser = event => {
         event.preventDefault()
@@ -26,7 +11,7 @@ class UpdateGuest extends Component {
     }
 
     render() {
-        return <Update onClick={this.updateUser}>Update</Update>
+        return <div style="color:#ef9b0f;cursor: pointer;" onClick={this.updateUser}>Update</div>
     }
 }
 
@@ -45,7 +30,7 @@ class DeleteGuest extends Component {
     }
 
     render() {
-        return <Delete onClick={this.deleteUser}>Delete</Delete>
+        return <div style="color: #ff0000;cursor: pointer;" onClick={this.deleteUser}>Delete</div>
     }
 }
 class GuestList extends Component {
@@ -122,7 +107,7 @@ class GuestList extends Component {
         }
 
         return (
-            <Wrapper>
+            <div style="padding: 0 40px 40px 40px">
                 {showTable && (
                     <ReactTable
                         data={guests}
@@ -133,7 +118,7 @@ class GuestList extends Component {
                         minRows={0}
                     />
                 )}
-            </Wrapper>
+            </div>
         )
     }
 }

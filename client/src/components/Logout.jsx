@@ -1,8 +1,10 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { createBrowserHistory } from 'history';
+const history = createBrowserHistory();
 
 const handleSubmit = async (e) => {
-  localStorage.setItem('token', '{}');
+  history.push('/login')
 }
 
 function Logout() { 

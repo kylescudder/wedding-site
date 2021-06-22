@@ -21,4 +21,4 @@ const createRefreshToken = (user) => {
 module.exports = {
 	createAccessToken,
 	createRefreshToken
-  };
+  }; 

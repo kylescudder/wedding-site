@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from "prop-types";
-import { getAccessToken, setAccessToken } from '../accessToken'
+import { setAccessToken } from '../accessToken'
+import { createBrowserHistory } from 'history';
+const history = createBrowserHistory();
 
 async function loginUser(credentials) {
   return fetch("http://localhost:3000/wedding/api/login", {
@@ -20,7 +22,7 @@ async function loginUser(credentials) {
 }
 
 //Login Box
-function Login({ setToken }) {
+function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -66,10 +68,10 @@ function Login({ setToken }) {
       }) 
         .then((response) => {
           if (response.success === true) {
-          setAccessToken(response.token)
+            setAccessToken(response.token)
+            history.push('/')
           } else {
             errorList.push({ elm: "api", msg: "Login failed" });
-            console.log(errorList)
           }
         })
         .catch((error) => {
@@ -170,6 +172,3 @@ function Login({ setToken }) {
   );
 }
 export default Login;
-Login.propTypes = {
-  setToken: PropTypes.func.isRequired,
-};
