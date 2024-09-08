@@ -2,7 +2,7 @@
 const mongoose = require('mongoose')
 
 mongoose
-    .connect('mongodb+srv://vscodetodo_user:D9qKLE2wVBH2R68b@vscodetodo.nsbh7.mongodb.net/wedding-site?retryWrites=true&w=majority', 
+    .connect(process.env.MONGODB_URI,
 	{ 
 		useNewUrlParser: true,
 		useUnifiedTopology: true
